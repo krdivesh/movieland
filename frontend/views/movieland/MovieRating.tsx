@@ -32,6 +32,7 @@ export default function MovieRating() {
                 <GridColumn path="director"/>
                 <GridColumn path="releaseYear"/>
                 <GridColumn path="genre"/>
+                <GridColumn path="rating"/>
             </Grid>
             {selectedMovies && <MovieForm movie={selectedMovies} onSubmit={saveMovie}/>}
         </div>
