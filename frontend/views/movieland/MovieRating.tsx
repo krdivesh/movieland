@@ -43,8 +43,11 @@ export default function MovieRating() {
             </Grid>
             <Button style={{ display: 'flex', justifyContent: 'center',
                 alignItems: 'center'}} onClick={analyzeMovies}>Analyze my movies</Button>
-            {selectedMovies && <MovieForm movie={selectedMovies} onSubmit={saveMovie}/>}
-            {movieAnalysis.length!=0 && <div>{movieAnalysis}</div>}
+
+            {movieAnalysis.length != 0 ?
+                <div>{movieAnalysis}</div> :
+                selectedMovies && <MovieForm movie={selectedMovies} onSubmit={saveMovie}/> }
+
         </div>
     )
 }

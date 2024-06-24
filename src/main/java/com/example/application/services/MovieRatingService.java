@@ -10,6 +10,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.BrowserCallable;
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
@@ -44,8 +47,8 @@ public class MovieRatingService {
             promptBuilder.append(" ").append(title).append(": ").append(rating);
         }
         promptBuilder.append(" tell me briefly what does it tell about me and " +
-                "based on this suggest me 5 movies that I should like as a bulleted list. " +
-                "No spoilers");
+                "based on this suggest me 5 movies that I should like as numbered list " +
+                "No spoilers. Prettify the response as a String");
 
 
         return callAIModel(promptBuilder.toString());
